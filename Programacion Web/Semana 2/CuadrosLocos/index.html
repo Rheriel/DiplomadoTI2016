@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Semana 2 - Cuadros locos</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<table>
+	<th>Agregar</th>
+	<th>Ancho</th>
+	<th>Alto</th>
+	<th>Color de Fondo</th>
+	<th>Color de Borde</th>
+	<th>Ancho de Borde</th>
+	<tr>
+		<td><button on onclick="agregarDiv();">Agregar cuadro</button></td>
+		<td><label for="ancho">Ancho: </label><input id="ancho" type="range" name="ancho" min="100px" max="500px" oninput="divSeleccionado.style.width = this.value + 'px'"></td>
+		<td><label for="alto">Alto: </label><input id="alto" type="range" name="alto" min="100px" max="500px" oninput="divSeleccionado.style.height = this.value + 'px'"></td>
+		<td><label for="fondoColor">Color: </label><input type="color" name="fondoColor" id="fondoColorPicker" value="#ff0000" onchange="divSeleccionado.style.backgroundColor = this.value"></td>
+		<td><label for="bordeColor">Color: </label><input type="color" name="bordeColor" id="bordeColorPicker" value="#0000ff" onchange="divSeleccionado.style.borderColor = this.value"></td>
+		<td><label for="anchoBorde">Ancho de Borde: </label><input id="anchoBorde" type="range" name="anchoBorde" min="1px" max="10px" oninput="divSeleccionado.style.borderWidth = this.value + 'px'"></td>
+	</tr>
+</table>
+
+
+	<div id="contenedor">
+	</div>
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>

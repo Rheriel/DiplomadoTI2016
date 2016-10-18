@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Práctica 3 - Calculadora</title>
+	<script type="text/javascript" src="js/script.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<fieldset>
+		<legend>CASIO</legend>
+		<table>
+			<tr>
+				<td colspan="6"><input class="display" id="display" name="txtDisplay" type="text" disabled></td>
+			</tr>
+			<tr>
+				<td><input type="button" onclick="sendButton(this.value)" id="btn7" name="btn7" value="7"></td>
+				<td><input type="button" onclick="sendButton(this.value)" id="btn8" name="btn8" value="8"></td>
+				<td><input type="button" onclick="sendButton(this.value)" id="btn9" name="btn9" value="9"></td>
+				<td><input type="button" onclick="sendOperator(this.value)" id="btnMult" name="btnMult" value="*"></td>
+				<td><input type="button" onclick="sendCommand(this.value)" id="btnMS" name="btnMS" value="MS"></td>
+				<td><input type="button" onclick="sendCommand(this.value)" id="btnMR" name="btnMR" value="MR"></td>
+			</tr>
+			<tr>
+				<td><input type="button" onclick="sendButton(this.value)" id="btn4" name="btn4" value="4"></td>
+				<td><input type="button" onclick="sendButton(this.value)" id="btn5" name="btn5" value="5"></td>
+				<td><input type="button" onclick="sendButton(this.value)" id="btn6" name="btn6" value="6"></td>
+				<td><input type="button" onclick="sendOperator(this.value)" id="btnDiv" name="btnDiv" value="/"></td>
+				<td><input type="button" onclick="sendCommand(this.value)" id="btnM" name="btnM" value="M+"></td>
+				<td><input type="button" onclick="sendCommand(this.value)" id="btnC" name="btnC" value="C"></td>
+			</tr>
+			<tr>
+				<td><input type="button" onclick="sendButton(this.value)" id="btn1" name="btn1" value="1"></td>
+				<td><input type="button" onclick="sendButton(this.value)" id="btn2" name="btn2" value="2"></td>
+				<td><input type="button" onclick="sendButton(this.value)" id="btn3" name="btn3" value="3"></td>
+				<td><input type="button" onclick="sendOperator(this.value)" id="btnMas" name="btnMas" value="+"></td>
+				<td><input type="button" onclick="sendCommand(this.value)" id="btnMC" name="btnMC" value="MC"></td>
+				<td><input type="button" onclick="sendCommand(this.value)" id="btnCE" name="btnCE" value="CE"></td>
+			</tr>
+			<tr>
+				<td><input type="button" onclick="sendButton(this.value)" id="btn0" name="btn0" value="0"></td>
+				<td><input type="button" onclick="sendButton(this.value)" id="btnPunto" name="btnPunto" value="."></td>
+				<td><input type="button" onclick="sendOperator(this.value)" id="btnMasMenos" name="btnMasMenos" value="+/-"></td>
+				<td><input type="button" onclick="sendOperator(this.value)" id="btnMenos" name="btnMenos" value="-"></td>
+				<td colspan="2"><input class="large-btn" type="button" onclick="sendOperator(this.value)" id="btnIgual" name="btnIgual" value="="></td>
+			</tr>
+		</table>
+	</fieldset>
+</body>
+</html>

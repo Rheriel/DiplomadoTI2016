@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Práctica 1 - Registro</title>
+</head>
+<body>
+	<a href="index.html">Atrás</a>
+	<br><br>
+	<fieldset style="width: 320px">
+	<legend>Registro: </legend>
+		<table style="width: 300px; padding: 5px;">
+			<tr>
+				<td>
+					<label for="nombre">Nombre: </label><input type="text" name="nombre">
+				</td>
+				<td>
+					<label for="apellido">Apellido: </label><input type="text" name="apellido">
+				</td>
+			</tr>
+
+			<tr>
+
+				<td>
+					<label for="edadText">Edad: </label>
+					<input id="edadRange" type="range" name="edad" min="0" max="99" onchange="changeRangeTextValue(this.value)">
+				</td>
+				<td>
+					<label for="email">E-mail: </label><input type="email" name="email">
+				</td>
+			</tr>
+
+			<tr>
+
+				<td>
+					<input type="text" name="edadText" id="edadText" onchange="changeRangeValue(this.value)">
+				</td>
+				<td>
+					<label for="emailCheck">¿Enviar preferencias por correo?</label>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<label for="genero">Género: </label>
+				</td>
+				<td>
+					<input type="checkbox" name="emailCheckDinero" value="dinero">Dinero
+					<input type="checkbox" name="emailCheckMujeres" value="mujeres">Mujeres
+					<input type="checkbox" name="emailCheckAlcohol" value="alcohol">Alcohol
+					<input type="checkbox" name="emailCheckJuegosDeAzar" value="azar">Juegos de azar
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<input type="radio" name="gender" value="macho" checked> Másculino<br>
+					<input type="radio" name="gender" value="hembra"> Femenino<br>
+					<input type="radio" name="gender" value="otro"> Apache Helicopter
+				</td>
+				<td>
+					<label for="color">Color: </label><input type="color" name="color">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<label for="fechaNacimiento">Fecha de nacimiento: </label>
+					<input type="date" name="fechaNacimiento">
+				</td>
+				<td>
+					<label for="url">Web personal: </label>
+					<input type="url" name="url">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<br><br>
+					<input type="button" name="submit" value="Enviar">
+				</td>
+				<td>
+					&nbsp;
+				</td>
+			</tr>
+		</table>
+	</fieldset>
+	<script>
+		function changeRangeTextValue(rangeVal){
+			document.getElementById("edadText").value = rangeVal;
+		}
+		function changeRangeValue(textVal){
+			document.getElementById("edadRange").value = textVal;
+		}
+	</script>
+</body>
+</html>
