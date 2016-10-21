@@ -5,13 +5,16 @@ var newNumber = true;
 
 function sendButton(val) {
 
-	newNumber = false;
 	display = document.getElementById("display");
-	if (display.value == "0"){
+	
+	if (!newNumber || display.value == "0" || display.value == "") {
 		display.value = val;
 	} else {
 		display.value += val;
 	}
+
+	newNumber = true;
+
 }
 
 function sendOperator(val) {
@@ -20,27 +23,38 @@ function sendOperator(val) {
 		return changeSymbol();
 	}
 	if (val == "=") {
-		return equal();
+		return equal(lastOperator);
+	}
+
+	lastNumber = parseInt(document.getElementById("display").value);
+
+	// If lastOperator is not undefined it means there is an operation queued,
+	// we need to return the result of that operation before we can do the new one.
+	if (typeof lastOperator != "undefined"){
+		equal(lastOperator);
 	}
 
 	if (val == "*") {
-		lastOperator = multiply(); 
+		lastOperator = multiply; 
 	}
 	if (val == "/") {
-		lastOperator = divide();
+		lastOperator = divide;
 	}
 	if (val == "+") {
-		lastOperator = sum();
+		lastOperator = sum;
 	}
 	if (val == "-") {
-		lastOperator = subtract();
+		lastOperator = subtract;
 	}
-	newNumber = false;
-	lastNumber = parseInt(document.getElementById("display").value);
-	lastOperator;
+	
+	lastOperator();
 }
 
 function sendCommand(val) {
+	
+	newNumber = false;
+	lastOperator = window.undefined;
+
 	if (val == "MS") {
 		return memorySave();
 	}
@@ -66,13 +80,13 @@ function multiply() {
 
 	display = document.getElementById("display");
 	
-	if (newNumber) {
-		lastNumber = parseInt(display.value);
-		newNumber = false;
-	} else {
+	if (newNumber){
 		currentNumber *= lastNumber;
+	} else {
+		console.log("Nothing to do...");
 	}
 
+	newNumber = false;
 	display.value = currentNumber;
 }
 
@@ -81,14 +95,13 @@ function divide() {
 
 	display = document.getElementById("display");
 	
-	if (newNumber) {
-		lastNumber = parseInt(display.value);
-		newNumber = false;
-	} else {
+	if (newNumber){
 		currentNumber /= lastNumber;
-		newNumber = true;
+	} else {
+		console.log("Nothing to do...");
 	}
 
+	newNumber = false;
 	display.value = currentNumber;
 }
 
@@ -97,13 +110,13 @@ function sum() {
 
 	display = document.getElementById("display");
 	
-	if (newNumber) {
-		lastNumber = parseInt(display.value);
-		newNumber = false;
-	} else {
+	if (newNumber){
 		currentNumber += lastNumber;
+	} else {
+		console.log("Nothing to do...");
 	}
 
+	newNumber = false;
 	display.value = currentNumber;
 }
 
@@ -112,20 +125,24 @@ function subtract() {
 
 	display = document.getElementById("display");
 	
-	if (newNumber) {
-		lastNumber = parseInt(display.value);
-		newNumber = false;
-	} else {
+	if (newNumber){
 		currentNumber -= lastNumber;
-		newNumber = true;
+	} else {
+		console.log("Nothing to do...");
 	}
 
+	newNumber = false;
 	display.value = currentNumber;
 }
 
-function equal(){
+function equal(lastOperator){
+	if (newNumber) {
+		lastNumber = parseInt(document.getElementById("display").value);
+	}
+
 	if(lastOperator != "" && lastOperator != "+/-"){
-		lastOperator;
+		newNumber = true;
+		lastOperator();
 	}
 }
 
@@ -135,21 +152,29 @@ function changeSymbol() {
 }
 
 function memorySave() {
-	memory.push()
+	display = document.getElementById("display");
+	memory = parseInt(display.value);
 }
 
 function memoryRecall() {
 	display = document.getElementById("display");
-	display.value = memory;
+
+	currentNumber = memory;
+
+	display.value = currentNumber;
 }
 
 function addMemory() {
 	display = document.getElementById("display");
-	memory += parseInt(display.value);
+
+	currentNumber += memory;
+
+	display.value = currentNumber;
 }
 
 function cls() {
 	display = document.getElementById("display");
+	newNumber = false;
 	display.value = "0";
 }
 
@@ -161,6 +186,8 @@ function clearEverything() {
 	display = document.getElementById("display");
 	display.value = "0";
 	currentNumber = 0;
-	newNumber = true;
+	lastNumber = 0;
+	newNumber = false;
+	lastOperator = window.undefined;
 	memory = 0;
 }
