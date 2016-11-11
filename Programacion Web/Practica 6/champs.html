@@ -3,8 +3,8 @@
 	<head>
 		<title>Examen segunda parcial 1</title>
 		<link href="css/style.css" rel='stylesheet' type='text/css' />	
-		<script src="js/jquery-1.12.3.js"></script>
-		<script src="js/champs.js"></script>
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script src="js/script.js"></script>
 	</head>
 	<body>		
 			<!---inicio cabecera---->
@@ -62,7 +62,9 @@
 					</div>
 				</div>
 				<div class="comments" id="Comments">
-					<input type"text" id="Comment" size="90"> <input type="button" value="Agregar comentario" onclick="AddComment()"><br><br>
+					<input type"text" id="Comment" size="90"> <input id="btnComment" type="button" value="Agregar comentario"><br><br>
+				
+					<div id="comentarios"><ul></ul></div>
 				<div>
 			</div>
 		</section>
@@ -139,7 +141,6 @@ Tryndamere, un hombre al que habían arrebatado su hogar y a su gente, merodeó po
 -- Tryndamere</div>
 			
 		</div>
-
 	</body>
 </html>
 

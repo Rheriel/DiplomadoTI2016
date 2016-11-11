@@ -209,3 +209,10 @@ background-image: radial-gradient(
 	width: 120px;
 	height: 120px;
 }
+
+.oddComment{
+	font-style: italic;
+}
+.evenComment{
+	font-family: monospace;
+}

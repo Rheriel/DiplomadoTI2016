@@ -1,7 +1,7 @@
 var memory = 0;
 var currentNumber = 0;
 var lastNumber = 0;
-var newNumber = true;
+var newNumber = false;
 
 function sendButton(val) {
 
@@ -26,7 +26,9 @@ function sendOperator(val) {
 		return equal(lastOperator);
 	}
 
-	lastNumber = parseInt(document.getElementById("display").value);
+	if (newNumber) {
+		lastNumber = parseInt(document.getElementById("display").value);
+	}
 
 	// If lastOperator is not undefined it means there is an operation queued,
 	// we need to return the result of that operation before we can do the new one.

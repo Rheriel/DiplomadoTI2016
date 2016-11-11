@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Semana 3 - jQuery</title>
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="cuadro rojo">Hola</div>
+	<div class="div1">Cómo estás?</div>
+	<div class="cuadro">Adiós</div>
+	<button onclick="$('div').show();">Mostrar</button>
+	<button onclick="$('div').hide();">Ocultar</button>
+	<button onclick="$('div.rojo').hide();">Ocultar rojo</button>
+	<button onclick="$('input[type!=text]').hide();">Ocultar non input text</button>
+	<button onclick="$('input:odd').hide();">Ocultar impar</button>
+	<button onclick="$('input:even').hide();">Ocultar par</button>
+	<button onclick="$(this).text($('#texto').val());">Sólo un botón más</button>
+	<input type="text" id="texto" value="Escribe aquí.">
+	<input type="radio" id="opcion">
+	<input type="checkbox" id="selector">
+</body>
+</html>

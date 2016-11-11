@@ -1,0 +1,12 @@
+.cuadro {
+	border: 1px solid black;
+	font-family: Arial;
+	font-size: 20px;
+	font-weight: bolder;
+	text-align: center;
+	width: 200px;
+}
+
+.rojo {
+	background-color: red;
+}
